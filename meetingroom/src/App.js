@@ -1,0 +1,93 @@
+import React, { useState } from "react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+import "./App.css";
+import Inputs from "./components/Inputs/";
+import Booking from "./components/Booking/";
+const App = () => {
+  const [data, setData] = useState([]);
+  const [value, onChange] = useState(new Date());
+  const [room, setRoom] = useState("");
+  const [person, setPerson] = useState("");
+  const [discrip, setDiscrip] = useState("");
+  const [timeSelected, setTimeSelected] = useState(null);
+
+  const handleMeeting = (event) => {
+    setRoom(event.target.value);
+    // console.log(event.target.value);
+  };
+  const handleName = (event) => {
+    setPerson(event.target.value);
+    // console.log(event.target.value);
+  };
+  const handleDiscription = (event) => {
+    setDiscrip(event.target.value);
+    // console.log(event.target.value);
+  };
+
+  const handleTimeSelector = (time) => {
+    //search for selected time
+    
+    setTimeSelected(time);
+    console.log("Time selected is:" + time);
+  };
+
+  const bookRoom = () => {
+    if (
+      room !== null &&
+      person !== "" &&
+      discrip !== "" &&
+      timeSelected !== null
+    ) {
+      const d = {
+        room: room,
+        person: person,
+        discription: discrip,
+        tim: value.toLocaleDateString(),
+        timeSelected: timeSelected,
+      };
+      setData([...data, d]);
+      // console.log(data);
+    } else {
+      alert("Enter all details to book meeting room!");
+    }
+    setRoom("");
+    setPerson("");
+    setDiscrip("");
+    setTimeSelected(null);
+  };
+  return (
+    <div className="App">
+      <div className="mt-3">
+        <h1>Meeting Room Booking</h1>
+        <Inputs
+          room={room}
+          person={person}
+          discrip={discrip}
+          handleMeeting={handleMeeting}
+          handleName={handleName}
+          handleDiscription={handleDiscription}
+        />
+        <div className="calender_container">
+          <Calendar className="mt-3" onChange={onChange} value={value} />
+        </div>
+      </div>
+      <Booking handleTimeSelector={handleTimeSelector} />
+      <button className="btn btn-danger mt-3" onClick={() => bookRoom()}>
+        Book Room
+      </button>
+      <p>
+        <b>Room: </b>
+        {room} <b>Name: </b>
+        {person} <b>Discription: </b>
+        {discrip}
+        <b> Scheduled date: </b>
+        {value.toLocaleDateString()}
+        <b>Selected time: </b>
+        {timeSelected}
+      </p>
+    </div>
+  );
+};
+
+export default App;
