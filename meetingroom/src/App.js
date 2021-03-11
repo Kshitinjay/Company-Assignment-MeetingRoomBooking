@@ -27,35 +27,50 @@ const App = () => {
 
   const handleTimeSelector = (time) => {
     //search for selected time
-    
+
     setTimeSelected(time);
-    console.log("Time selected is:" + time);
+    // console.log("Time selected is:" + time);
   };
 
   const bookRoom = () => {
-    if (
-      room !== null &&
-      person !== "" &&
-      discrip !== "" &&
-      timeSelected !== null
-    ) {
-      const d = {
-        room: room,
-        person: person,
-        discription: discrip,
-        tim: value.toLocaleDateString(),
-        timeSelected: timeSelected,
-      };
-      setData([...data, d]);
-      // console.log(data);
-    } else {
-      alert("Enter all details to book meeting room!");
+    let flag = true;
+    data.map((elem) => {
+      if (
+        elem.room === room &&
+        elem.timeSelected === timeSelected &&
+        elem.dt === value.toLocaleDateString()
+      ) {
+        alert("Already booked");
+        flag = false;
+      }
+      return <h1>No</h1>;
+    });
+    if (flag) {
+      if (
+        room !== "" &&
+        person !== "" &&
+        discrip !== "" &&
+        timeSelected !== null
+      ) {
+        const d = {
+          room: room,
+          person: person,
+          discription: discrip,
+          dt: value.toLocaleDateString(),
+          timeSelected: timeSelected,
+        };
+        setData([...data, d]);
+        alert("Booked");
+        setRoom("");
+        setPerson("");
+        setDiscrip("");
+        setTimeSelected(null);
+      } else {
+        alert("Check all fields or reselect Room!");
+      }
     }
-    setRoom("");
-    setPerson("");
-    setDiscrip("");
-    setTimeSelected(null);
   };
+
   return (
     <div className="App">
       <div className="mt-3">

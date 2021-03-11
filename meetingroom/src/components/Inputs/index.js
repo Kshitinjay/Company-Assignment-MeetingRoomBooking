@@ -1,6 +1,13 @@
 import React from "react";
 import "./input.css";
-const Inputs = ({ room,person,discrip,handleMeeting, handleName, handleDiscription }) => {
+const Inputs = ({
+  room,
+  person,
+  discrip,
+  handleMeeting,
+  handleName,
+  handleDiscription,
+}) => {
   return (
     <div className=" mainContainer mt-4">
       <div>
@@ -9,8 +16,9 @@ const Inputs = ({ room,person,discrip,handleMeeting, handleName, handleDiscripti
           <select
             className="form-select"
             onChange={(event) => handleMeeting(event)}
+            value={room}
           >
-            <option defaultValue>Select Room</option>
+            <option value="abcd">Select Room</option>
             <option value="meeting">Meeting Room</option>
             <option value="training">Training Room</option>
             <option value="confference">Confference Room</option>
@@ -25,7 +33,6 @@ const Inputs = ({ room,person,discrip,handleMeeting, handleName, handleDiscripti
             className="form-control"
             onChange={(event) => handleName(event)}
             value={person}
-            required
           />
         </div>
       </div>
@@ -38,7 +45,6 @@ const Inputs = ({ room,person,discrip,handleMeeting, handleName, handleDiscripti
             className="form-control"
             onChange={(event) => handleDiscription(event)}
             value={discrip}
-            required
           />
         </div>
       </div>
