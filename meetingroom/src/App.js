@@ -74,7 +74,7 @@ const App = () => {
   return (
     <div className="App">
       <div className="mt-3">
-        <h1>Meeting Room Booking</h1>
+        <h1 className="fw-bolder text-decoration-underline">Meeting Room Booking</h1>
         <Inputs
           room={room}
           person={person}
@@ -88,10 +88,10 @@ const App = () => {
         </div>
       </div>
       <Booking handleTimeSelector={handleTimeSelector} />
-      <button className="btn btn-danger mt-3" onClick={() => bookRoom()}>
+      <button className="btn btn-danger m-3" onClick={() => bookRoom()}>
         Book Room
       </button>
-      <p>
+      {/* <p>
         <b>Room: </b>
         {room} <b>Name: </b>
         {person} <b>Discription: </b>
@@ -100,7 +100,7 @@ const App = () => {
         {value.toLocaleDateString()}
         <b>Selected time: </b>
         {timeSelected}
-      </p>
+      </p> */}
     </div>
   );
 };

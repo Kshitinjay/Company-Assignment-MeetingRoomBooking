@@ -17,7 +17,7 @@ const Booking = ({ handleTimeSelector }) => {
     "8:00PM",
   ];
   return (
-    <div className="container mt-3">
+    <div className="container mt-3 d-flex flex-wrap justify-content-center">
       {arr.map((time, idx) => {
         return (
           <button
