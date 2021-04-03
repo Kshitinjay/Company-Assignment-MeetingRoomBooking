@@ -9,7 +9,7 @@ const Inputs = ({
   handleDiscription,
 }) => {
   return (
-    <div className=" mainContainer mt-4">
+    <div className=" mainContainer mt-5">
       <div>
         <label className="form-label">Select Room</label>
         <div className="input-group">
