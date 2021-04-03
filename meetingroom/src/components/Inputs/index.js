@@ -19,9 +19,9 @@ const Inputs = ({
             value={room}
           >
             <option value="abcd">Select Room</option>
-            <option value="meeting">Meeting Room</option>
-            <option value="training">Training Room</option>
-            <option value="confference">Confference Room</option>
+            <option value="Meeting">Meeting Room</option>
+            <option value="Training">Training Room</option>
+            <option value="Confference">Confference Room</option>
           </select>
         </div>
       </div>

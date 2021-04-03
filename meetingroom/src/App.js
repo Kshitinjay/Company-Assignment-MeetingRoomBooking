@@ -74,7 +74,9 @@ const App = () => {
   return (
     <div className="App">
       <div className="mt-3">
-        <h1 className="fw-bolder text-decoration-underline">Meeting Room Booking</h1>
+        <h1 className="fw-bolder text-decoration-underline">
+          Meeting Room Booking
+        </h1>
         <Inputs
           room={room}
           person={person}
@@ -91,18 +93,31 @@ const App = () => {
       <button className="btn btn-danger m-3" onClick={() => bookRoom()}>
         Book Room
       </button>
-      {/* <p>
-        <b>Room: </b>
-        {room} <b>Name: </b>
-        {person} <b>Discription: </b>
-        {discrip}
-        <b> Scheduled date: </b>
-        {value.toLocaleDateString()}
-        <b>Selected time: </b>
-        {timeSelected}
-      </p> */}
+      <div className="container">
+        <table class="table table-hover">
+          <thead class="table-danger">
+            <tr>
+              <th scope="col">Sr.</th>
+              <th scope="col">Room</th>
+              <th scope="col">Name</th>
+              <th scope="col">Date</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((element, id) => (
+              <tr>
+                <td scope="row">{id+1}</td>
+                <td>{element.room}</td>
+                <td>{element.person}</td>
+                <td>{element.dt}</td>
+                <td>{element.timeSelected}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
-
 export default App;
