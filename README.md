@@ -8,3 +8,4 @@ Requirements:
 •	Use React (using Redux will be a plus)
 •	Feel free to use any calendar React component.
 Fell free to add more meaning functionalities if you feel like.
+![Screenshot (66)](https://user-images.githubusercontent.com/42874510/113491242-ed569800-94ec-11eb-8cf0-6770d4c4ea34.png)
